@@ -2,12 +2,12 @@
  * Type Aliases
  */
 type Student = {
-    name:string;
-    age: number;
+  name: string;
+  age: number;
 };
 
 /**
  * String Literal Types
  */
-type Name = 'Cater'
+type Name = 'Cater';
 let hisName: Name;
