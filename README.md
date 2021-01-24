@@ -19,10 +19,13 @@
 
 ## OOP의 특징
 
-1. 캡슐화
-2. 추상화
-3. 상속
-4. 다형성
+### 캡슐화
+
+### Abstraction 추상화
+
+### Ingeritrance 상속
+
+### Polymorphism 다형성
 
 ## 참고
 
