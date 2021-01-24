@@ -1,53 +1,55 @@
-/**
- * @description last in first out, 연결노드
- */
+{
+  /**
+   * @description last in first out, 연결노드
+   */
 
-interface StackInterface {
-  readonly length: number;
-  push(value: string): void;
-  pop(): string | undefined;
-}
+  interface StackInterface {
+    readonly length: number;
+    push(value: string): void;
+    pop(): string | undefined;
+  }
 
-class Stack implements StackInterface {
-  private head = -1;
-  private node: { [props: number]: string | undefined } = {};
+  class Stack implements StackInterface {
+    private head = -1;
+    private node: { [props: number]: string | undefined } = {};
 
-  constructor(size?: number) {
-    if (size) {
-      let i;
-      this.head = size - 1;
-      for (i = 0; size > i; i++) {
-        this.node[i] = undefined;
+    constructor(size?: number) {
+      if (size) {
+        let i;
+        this.head = size - 1;
+        for (i = 0; size > i; i++) {
+          this.node[i] = undefined;
+        }
       }
+    }
+
+    get length(): number {
+      return this.head + 1;
+    }
+
+    pop(): string | undefined {
+      return this.node[this.head--];
+    }
+
+    push(value: string) {
+      ++this.head;
+      this.node[this.head] = value;
     }
   }
 
-  get length(): number {
-    return this.head + 1;
-  }
+  const stack = new Stack();
 
-  pop(): string | undefined {
-    return this.node[this.head--];
-  }
+  console.log(stack.length);
+  stack.push('a');
+  stack.push('b');
+  stack.push('c');
+  stack.push('b');
+  stack.push('b');
 
-  push(value: string) {
-    ++this.head;
-    this.node[this.head] = value;
-  }
+  console.log(stack.pop());
+  console.log(stack.pop());
+  console.log(stack.pop());
+  console.log(stack.pop());
+  console.log(stack.pop());
+  console.log(stack.length);
 }
-
-const stack = new Stack();
-
-console.log(stack.length);
-stack.push('a');
-stack.push('b');
-stack.push('c');
-stack.push('b');
-stack.push('b');
-
-console.log(stack.pop());
-console.log(stack.pop());
-console.log(stack.pop());
-console.log(stack.pop());
-console.log(stack.pop());
-console.log(stack.length);
