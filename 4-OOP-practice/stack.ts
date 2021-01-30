@@ -1,55 +1,57 @@
 {
-  /**
-   * @description last in first out, 연결노드
-   */
-
   interface StackInterface {
-    readonly length: number;
+    readonly size: number;
     push(value: string): void;
     pop(): string | undefined;
   }
 
+  type StackNode = {
+    readonly value: string;
+    readonly next?: StackNode;
+  };
+
   class Stack implements StackInterface {
-    private head = -1;
     private node: { [props: number]: string | undefined } = {};
+    private _size: number;
+    private head?: StackNode;
 
-    constructor(size?: number) {
-      if (size) {
-        let i;
-        this.head = size - 1;
-        for (i = 0; size > i; i++) {
-          this.node[i] = undefined;
-        }
-      }
-    }
+    constructor(private capacicy: number = 0) {}
 
-    get length(): number {
-      return this.head + 1;
-    }
-
-    pop(): string | undefined {
-      return this.node[this.head--];
+    get size(): number {
+      return this._size;
     }
 
     push(value: string) {
-      ++this.head;
-      this.node[this.head] = value;
+      if (this.size === this.capacicy) {
+        throw new Error('Stack over flow');
+      }
+      const node: StackNode = { value, next: this.head };
+      this.head = node;
+      this._size++;
+    }
+
+    pop(): string {
+      if (!this.head) {
+        throw new Error('Stack is empty');
+      }
+
+      const node: StackNode = this.head;
+      this.head = node.next;
+      this._size--;
+      return node.value;
     }
   }
 
-  const stack = new Stack();
+  const stack = new Stack(10);
 
-  console.log(stack.length);
+  console.log(stack.size);
   stack.push('a');
   stack.push('b');
   stack.push('c');
   stack.push('b');
   stack.push('b');
 
-  console.log(stack.pop());
-  console.log(stack.pop());
-  console.log(stack.pop());
-  console.log(stack.pop());
-  console.log(stack.pop());
-  console.log(stack.length);
+  while (stack.size !== 0) {
+    console.log(stack.pop());
+  }
 }

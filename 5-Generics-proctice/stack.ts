@@ -2,15 +2,30 @@
  * @description last in first out, 연결노드
  */
 {
+  /**
+   * 스택 인터페이스
+   */
   interface StackInterface<T> {
     readonly size: number;
+
+    /**
+     * 스택에 새로운 항목을 넣는다.
+     * @param value
+     */
     push(value: T): void;
+
+    /**
+     * 스택에 담겨있는 값을 꺼낸다.
+     * @return T
+     */
     pop(): T | undefined;
   }
 
   class StackNode<T> {
-    next: StackNode<T> | null = null;
-    constructor(public readonly value: T) {}
+    constructor(
+      public readonly value: T,
+      public next: StackNode<T> | null = null
+    ) {}
   }
 
   class Stack<T> implements StackInterface<T> {
@@ -52,8 +67,7 @@
         throw new Error('stack over flow');
       }
 
-      const node = new StackNode<T>(value);
-      node.next = this.head;
+      const node = new StackNode<T>(value, this.head);
       this.head = node;
       this._size++;
     }
@@ -68,12 +82,7 @@
   const peter = new Person('peter', 22);
   const johon = new Person('johon', 50);
 
-  personStack.push(cater);
-  personStack.push(peter);
-  personStack.push(johon);
-  console.log(personStack.size);
-
-  const p: Person = personStack.pop();
-
-  console.log(`Name: ${p.name}`);
+  while (personStack.size !== 0) {
+    console.log(personStack.pop());
+  }
 }
