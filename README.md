@@ -98,3 +98,4 @@
 - [randomImg](https://picsum.photos/)
 - [Playground](https://www.typescriptlang.org/play)
 - [UserStory](https://www.visual-paradigm.com/guide/agile-software-development/what-is-user-story/#:~:text=A%20user%20story%20is%20a,simplified%20description%20of%20a%20requirement)
+- [tpyescript-Design-pattern](https://vallista.kr/2020/06/07/TypeScript-%EB%94%94%EC%9E%90%EC%9D%B8-%ED%8C%A8%ED%84%B4-%EB%A9%94%EB%A9%98%ED%86%A0-%ED%8C%A8%ED%84%B4/)
