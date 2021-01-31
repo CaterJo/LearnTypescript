@@ -75,6 +75,26 @@
 
 예상할 수 없는 케이스
 
+## 설계
+
+### 1. 기능정의
+
+- 어떤 기능이 있는지?
+
+### 2. 로드맵정의하기
+
+- 각각 시장에 배포가능한 작은 단계로 만들기.
+- 문제정의
+- 우선순위 정의(필수, 권장, 도전)
+
+```ts
+// 1. must have (필수)
+// 2. good to have (권장)
+// 3. nice to have (도전)
+```
+
 ## 참고
 
+- [randomImg](https://picsum.photos/)
 - [Playground](https://www.typescriptlang.org/play)
+- [UserStory](https://www.visual-paradigm.com/guide/agile-software-development/what-is-user-story/#:~:text=A%20user%20story%20is%20a,simplified%20description%20of%20a%20requirement)

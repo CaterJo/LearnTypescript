@@ -27,7 +27,7 @@
   };
 
   const readonlyVido: ReadonlyVideo = {
-    title: '원피스2',
+    title: '원피스',
     author: '오다',
   };
 
@@ -36,4 +36,13 @@
 
   // 모든 타입을 null이 가능한 타입으로 만든다.
   type Nullable<T> = { [P in keyof T]: T[P] | null };
+
+  type Proxy<T> = {
+    get(): T;
+    set(value: T): void;
+  };
+
+  type Proxify<T> = {
+    [P in keyof T]: Proxy<T[P]>;
+  };
 }
